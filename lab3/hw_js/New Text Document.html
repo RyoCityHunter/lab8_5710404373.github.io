@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+</head>
+<body>
+	
+<div id="form-container">
+	
+	<h2 id="form-title">ลงทะเบียนสมัครสมาชิก MThai</h2>
+	<form method="post" accept-charset="utf-8" id="signup_form" class="signup_form">
+		<div class="form_row">
+			<span class="label">ชื่อล็อกอิน :</span>
+		</div>
+		<div class="form_row">
+			<span class="label">รหัสผ่าน :</span>
+			<div class="wrap">
+				<input type="password" class="textinput" name="password" value="" id="f_password" maxlength="16" tabindex="2" autocomplete="off">
+				<span class="help">ความยาว 4-16 ตัว</span>
+			</div>
+		</div>
+		<div class="form_row">
+			<span class="label">ยืนยันรหัสผ่าน :</span>
+			<div class="wrap">
+				<input type="password" class="textinput" name="password2" value="" id="f_password2" maxlength="16" tabindex="3" autocomplete="off">
+			</div>
+		</div>
+		<div class="form_row">
+			<span class="label">ชื่อเล่นในเว็บ :</span>
+			<div class="wrap">
+				<input type="text" class="textinput" name="nickname" value="" id="f_nickname" maxlength="32" tabindex="4" autocomplete="off">
+				<input type="button" name="check_nickname_bttn" value="ตรวจสอบ" id="f_check_nickname_bttn" disabled="disabled">
+				<span id="f_status_nickname" class="check_status"></span>
+				<span class="help">ความยาว 4-32 ตัว ไม่มีช่องว่างหรือตัวอักษรพิเศษ</span>
+			</div>
+		</div>
+		<div class="form_row">
+			<span class="label">อีเมล :</span>
+			<div class="wrap">
+				<input type="text" class="textinput" name="email" value="" id="f_email" tabindex="5">
+				<span class="help">ใส่อีเมลจริง เพราะต้องใช้ยืนยันการสมัครสมาชิก</span>
+			</div>
+		</div>
+		<div class="form_row">
+			<span class="label">ยืนยันบุคคล :</span>
+			<div class="wrap">
+				<div class="g-recaptcha" data-SiteKey="6Lcl-v4SAAAAABLrefPpffy36IK000KBQdhnGKIT"></div>
+			</div>
+			<div style="clear: left;"></div>
+		</div>
+		<div class="form_row">
+			<span class="label">เงื่อนไขการใช้บริการ :</span>
+			<div class="wrap">
+				<div id="eula">
+					<p>Mthai.com เป็นเว็บไซต์ให้บริการ ข่าวสารบันเทิง ลิขสิทธิ์ของข่าวสารในเวบทั้งหมด เป็น สิทธิของเว็บ ห้ามลอกเลียนแบบ เว้น แต่ได้รับอนุญาต จาก Mthai</p>
+					<p>คุณยอมรับว่า Webmaster นี้ มีสิทธิ์อ่าน, ลบ หรือแก้ไขทุกข้อความ และ Webmaster ไม่สามารถรับผิดชอบต่อข้อความที่คุณได้แสดงความคิดเห็น (ยกเว้นว่าพวกเขาจะเป็นผู้โพสต์เอง). คุณตกลงว่าจะไม่โพสต์ข้อความที่หยาบคาย, ลามก, ไม่แสดงความเคารพ, หมิ่นประมาท, เป็นที่รังเกียจ, ขู่เข็ญ, ส่อไปในทางเพศ หรืออื่นๆที่ขัดต่อกฎหมาย. การกระทำเช่นนั้นอาจทำให้คุณถูกหวงห้ามทันที และอย่างถาวร (และผู้ให้บริการของคุณก็จะได้รับการแจ้งเตือนด้วย).</p>
+					<p>หมายเลข IP ของทุกโพสต์จะถูกบันทึกเพื่อใช้เป็นหลักฐาน. คุณยินยอมให้ webmaster, นี้มีสิทธิ์ลบ, แก้ไข, ย้าย หรือปิดหัวข้อใดๆได้ตลอดเวลาที่สมควร. คุณยินยอมให้ข้อมูลทุกอย่างของคุณถูกเก็บไว้ในฐานข้อมูล. ซึ่งข้อมูลเหล่านี้จะไม่ถูกเปิดเผยต่อผู้อื่นโดยไม่ได้รับการยินยอมจากคุณ Webmaster ไม่สามารถรับผิดชอบต่อการถูกเจาะข้อมูล แล้วนำไปสร้างความเดือดร้อนต่างๆ.</p>
+					<p>เว็บไซต์ นี้ใช้ระบบ cookies เพื่อเก็บข้อมูลไว้ในคอมพิวเตอร์ของคุณ. Cookies เหล่านี้จะไม่มีข้อมูลที่คุณได้กรอกไว้เหมือนด้านบน; แต่เพื่อช่วยให้คุณใช้งานได้ง่ายขึ้น. E-mail จะถูกใช้เพื่อยืนยันข้อมูลการสมัครสมาชิกและ password ของคุณเท่านั้น (และใช้สำหรับส่ง password อันใหม่เมื่อคุณลืม password เก่า).</p>
+				</div>
+				<input type="checkbox" name="confirm" value="1" id="f_confirm" tabindex="7">
+				<label for="f_confirm">ยอมรับเงื่อนไขการใช้บริการ</label>
+				
+							</div>
+		</div>
+		<div class="form_row">
+			<div class="wrap">
+				<input type="submit" name="submit" value="สมัครสมาชิก" id="f_submit" tabindex="8">
+			</div>
+		</div>
+	</form>
+</div>
+	
+</body>
+</html>
