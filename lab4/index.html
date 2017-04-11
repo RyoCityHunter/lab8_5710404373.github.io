@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Register</title>
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	<script language="javascript">
+
+		var allID = ["firstname", "lastname", "address", "city", "province", "zipcode", "housenumber", 
+					"cellphonenumber", "date", "txtID", "zodiacsign", "zodiacyear", "dayofbirth"];
+		var stateID = false;
+		var stateSubmit = false;
+
+		window.onload = function() {
+			if (document.cookie != "") {
+				var tmpInput = document.cookie.split(";");
+  				var input1, input2;
+  				for (i = 0; i < tmpInput.length; i++) {
+	  				tmpInput[i] = tmpInput[i].trim();
+	  				input1 = tmpInput[i].split("=")[0];
+	  				input2 = tmpInput[i].split("=")[1];
+  					if (input1 == "stateSubmit" && input2 == "true") {
+  						stateSubmit = true;
+  					} else if (!stateSubmit) {
+  						document.getElementById(allID[i]).value = input2;
+  					}
+  				}
+  				if (stateSubmit) {
+  					fillTable();
+  				}
+			}
+		}
+
+		function checkID(id) {
+    		if(id.length != 13) {
+    			return false;
+    		}
+    		for(i = 0, sum = 0; i < 12; i++) {
+				sum += parseFloat(id.charAt(i))*(13 - i);
+    		}
+    		if((11 - sum % 11) % 10 != parseFloat(id.charAt(12))) {
+    			return false;
+    		}
+    		return true;
+    	}
+
+    	function checkForm() {
+    		if(!checkID(document.formregister.txtID.value)) {
+        		document.getElementById("checkID").innerHTML = "<img src='img/wrong.png' alt='correct' class='mark'> Incorrect ID";
+        		stateID = false;
+    		} else {
+        		document.getElementById("checkID").innerHTML = "<img src='img/correct.png' alt='correct' class='mark'> Correct ID";
+        		stateID = true;
+    		}
+		}
+
+		function allLetter(inputtxt) {
+   			var letters = /^[A-Za-z]+$/;
+   			if(inputtxt.value.match(letters)) {
+      			return true;
+     		} else {
+     			inputtxt.value = inputtxt.value.substring(0, inputtxt.value.length - 1);
+     			return false;
+     		}
+  		}
+
+  		function allDigit(inputtxt) {
+  			var digits = /^[0-9+-]+$/;
+   			if(inputtxt.value.match(digits)) {
+      			return true;
+     		} else {
+     			inputtxt.value = inputtxt.value.substring(0, inputtxt.value.length - 1);
+     			return false;
+     		}
+  		}
+
+  		function toSaveInput() {
+  			for (i = 0; i < allID.length; i++) {
+  				document.cookie = allID[i] + "=" + document.getElementById(allID[i]).value;
+  			}
+  			alert("Data has been saved.");
+  		}
+
+  		function toClearInput() {
+  			document.getElementById('form').reset();
+  			alert("Data has been cleared.");
+  		}
+
+  		function toSubmitInput() {
+  			var state = 1;
+  			for (i = 0; i < allID.length; i++) {
+  				if (document.getElementById(allID[i]).value == "") {
+  					alert("Invalid input.");
+  					state = 0;
+  					return;
+  				}
+  			}
+  			if (state && stateID) {
+  				document.cookie = "stateSubmit=true";
+  				toSaveInput();
+  				confirm(document.cookie);
+  				fillTable();
+  				location.reload();
+  			} else {
+  				alert("Please check your ID.");
+  			}
+  		}
+
+  		function fillTable() {
+  			var tmpInput = document.cookie.split(";");
+  			var allInput1, allInput2;
+  			var codeTable = "<table class='result'><tr><th>id</th><th>value</th></tr>";
+  			for (i = 0; i < tmpInput.length; i++) {
+  				tmpInput[i] = tmpInput[i].trim();
+  				allInput1 = tmpInput[i].split("=")[0];
+  				allInput2 = tmpInput[i].split("=")[1];
+  				if (allInput1 != "stateSubmit") {
+  					codeTable += "<tr><td>" + allInput1 + "</td><td>" + allInput2 + "</td></tr>";
+  				}
+  			}
+  			codeTable += "</table>";
+  			document.getElementById("result").innerHTML = codeTable;
+  		}
+	</script>
+</head>
+<body>
+	<section>
+		<header role="banner">
+			
+		</header>
+	</section>
+	<p class="headerBody">jQuery & AJAX </p>
+
+	<div class="profileImage">
+		<img src="profileIcon.png" alt="profile-icon">
+	</div>
+
+	<form action="" name="formregister" id="form">
+		<fieldset class="fieldset">
+		<!-- <legend>Register</legend> -->
+			Name:<br>
+			<input type="text" name="firstname" id="firstname" placeholder="Firstname" oninput="allLetter(document.formregister.firstname)">
+			<input type="text" name="lastname" id="lastname" placeholder="Lastname" oninput="allLetter(document.formregister.lastname)">
+			<br>
+			<br>
+
+			Birthday:<br>
+			<input type="date" id="date">
+			<br>
+			<br>
+
+			
+			<input type="button" name="save" value="Save" onclick="toSaveInput()">
+			<input type="button" name="clear" value="Clear" onclick="toClearInput()">
+			<input type="button" name="submit" value="Submit" onclick="toSubmitInput()">
+
+		</fieldset>
+	</form>
+
+	<div id="result">
+	</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<html>
+<head><title> ‚Œ¡‡æ®¢Õß¢È“æ‡®È“ </title>
+    <style type="text/css">
+    .mylabel{
+        display: inline-block;
+        width: 150px;
+        margin-bottom: 10px;        
+    }
+    </style>
+<script>
+function myFunction() {
+    document.getElementById("myForm").reset();
+}
+</script>
+
+</head>
+<body><br><br>
+	<form name="myform1" id="myform1" action="" method="post"> 
+	<span class="mylabel">Firstname : </span>
+	<input type=text name="Firstname" id="Firstname" value="" size=20/><br> 
+	<span class="mylabel">Lastname  : </span>
+	<input type=text name="Lastname" id="Lastname" value="" size=20/><br>
+			<fieldset>
+			<legend>Address :</legend><br />
+
+			<table>
+				<tr>
+					<td>House number : </td>
+					<td><input type=text name="House number" size=10/></td>
+				</tr>
+				<tr>
+					<td>Street : </td>
+					<td><input type=text name="Street" size=10/></td>
+				</tr>
+				<tr>
+					<td>City : </td>
+					<td><input type=text name="City" size=10/></td>
+				</tr>
+				<tr>
+					<td>Province : </td>
+					<td><input type=text name="Province" size=10/></td>
+				</tr>
+				<tr>
+					<td>Zipcode : </td>
+					<td><input type=text name="Zipcode" size=10></td>
+				</tr>
+			</table>
+			</fieldset>
+	<span class="mylabel">Phone number: </span>
+	+662 <INPUT type="text" name="Phone number" size="5" maxlength="3" > - <INPUT type="text" name="Phone number" size="5" maxlength="3" ></br>
+	<span class="mylabel">Cell phone number: </span>
+	+66 <INPUT type="text" name="Phone number" size="5" maxlength="2" > - <INPUT type="text" name="Phone number" size="5" maxlength="3" > - <INPUT type="text" name="Phone number" size="5" maxlength="4" ></br>
+	<span class="mylabel">Birthday (dd/mm/yyyy): </span>
+	<INPUT type="text" name="DD" size="5" maxlength="2"> / <INPUT type="text" name="MM" size="5" maxlength="2"> / <INPUT type="text" name="YY" size="5" maxlength="4"></br>
+	<span class="mylabel">Citizenship number: </span>
+	<input name="idcard" type="text" size="15"></br>
+	<span class="mylabel">Zodiac Sign: </span>
+	<select name="myselect" id="myselect">
+	    <option value="">Select</option>
+	    <option value="aquarius">Aquarius</option>
+	    <option value="pisces">Pisces</option>
+	    <option value="aries">Aries</option>
+	    <option value="taurus">Taurus</option>
+	    <option value="gemini">Gemini</option>
+	    <option value="cancer">Cancer</option>
+	    <option value="leo">Leo</option>
+	    <option value="Viro">Viro</option>
+	    <option value="libra">Libra</option>
+	    <option value="scorpio">Scorpio</option>
+	    <option value="sagittarius">Sagittarius</option>
+	    <option value="capricorn">Capricorn</option>
+	</select>
+	<br>
+	<span class="mylabel">Zodiac Year: </span>
+	<select name="myselect" id="myselect">
+	    <option value="">Select</option>
+	
+	<br>
+	<input type="button" onclick="myFunction()" value="Reset form">
+
+
+			</form>
+		</center>
+	</body>
+</html>
